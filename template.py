@@ -19,7 +19,8 @@ def load_dataset(dataset_path):
 
 
 def dataset_stat(dataset_df):
-    return dataset_df.shape[-1], dataset_df.groupby("target").size()[0], dataset_df.groupby("target").size()[1]
+    # target 제외한 feature 개수 (target=label)
+    return dataset_df.shape[-1] - 1, dataset_df.groupby("target").size()[0], dataset_df.groupby("target").size()[1]
 
 
 def split_dataset(dataset_df, testset_size):
